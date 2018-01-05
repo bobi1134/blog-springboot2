@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title th:text="${articleDetails.title+' - '+articleDetails.author +' - BJAVA'}"> Web前端技术简介 - BJAVA </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="Keywords" content="KeyWords, KeyWords"/>
+	<meta name="description" th:content="${articleDetails.title}"/>
+	<meta name="author" content="Nothing"/>
+	<link rel="icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+	<!--引入css-->
+	<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+	<link href="//at.alicdn.com/t/font_508049_5z6p90g5k0h5xw29.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet" >
+	<link href="/css/article.css" rel="stylesheet"/>
+	<link href="/css/jqDock.css" rel="stylesheet"/>
+	<!--todo markdowm样式css-->
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<embed src="/imgs/swf/header.swf" width="960" wmode="transparent"/>
+			<div class="nav">
+				<a href="/">首页</a>
+				<a th:href="${'/cat/'+category.id}" th:each="category:${categoryList}" th:if="*{category.isTop==0}" th:text="*{category.name}">JavaSE</a>
+				<a href="javascript:;">
+					<input type="text" value="search..." onblur="if(this.value==''){this.value='search...';$('.icon-soushuo').fadeIn();}" onfocus="if(this.value=='search...'){this.value='';$('.icon-soushuo').fadeOut();}"/>
+					<span class="iconfont icon-soushuo"></span>
+				</a>
+			</div>
+		</div>
+		<div class="content">
+			<!--左部内容-->
+			<div class="left_content">
+				<!--博主资料-->
+				<div class="introduction">
+					<div class="title">
+						<p>博主资料</p>
+					</div>
+					<img src="/imgs/me.jpg" width="180" height="180" class="photo"/>
+					<div class="details" th:object="${articleDetails}">
+						<div class="row">
+							<div class="label">博主：</div>
+							<div class="val" th:text="*{author}">渐行渐远渐行渐远渐行渐远渐行渐远渐行渐远渐行渐远</div>
+						</div>
+						<div class="row">
+							<div class="label">行业：</div>
+							<div class="val">IT互联网</div>
+						</div>
+						<div class="row">
+							<div class="label">擅长：</div>
+							<div class="val">Java</div>
+						</div>
+						<div class="row">
+							<div class="label">主页：</div>
+							<div class="val">
+								<a th:href="*{'http://localhost:8080/u/'+userId}" th:text="*{'http://localhost:8080/u/'+userId}">http://www.bjava.xyz/u/2</a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="label">电话：</div>
+							<div class="val">保密</div>
+						</div>
+						<div class="row">
+							<div class="label">邮箱：</div>
+							<div class="val">
+								<a th:href="*{'mailto:'+email}" th:text="*{email}">abc@qq.com</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--更多分类-->
+				<div class="more">
+					<div class="title">
+						<p>更多分类</p>
+					</div>
+					<div class="details">
+						<ul>
+							<a href="#" th:each="category:${categoryList}" th:if="*{category.isTop!=0}">
+								<li th:text="*{category.name}">WEB前端</li>
+							</a>
+						</ul>
+					</div>
+				</div>
+				<!--TA的标签-->
+				<div class="more">
+					<div class="title">
+						<p>TA的标签/我的标签</p>
+					</div>
+					<div class="details">
+						<ul id="more_label_ul">
+							<a href="#"><li>Java</li></a>
+							<a href="#"><li>C++</li></a>
+							<a href="#"><li>JAVA</li></a>
+							<a href="#"><li>HTML</li></a>
+							<a href="#"><li>学习体悟</li></a>
+						</ul>
+					</div>
+				</div>
+
+				<!--近期文章-->
+				<div class="top">
+					<div class="title">
+						<p>近期文章</p>
+					</div>
+					<div class="details">
+						<ul>
+							<li th:each="article:${recentArticleList}">
+								<a href="#" th:text="*{article.title}">HTML5</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--阅读排行榜-->
+				<div class="top">
+					<div class="title">
+						<p>阅读排行榜</p>
+					</div>
+					<div class="details">
+						<ul>
+							<li th:each="article:${readRankArticleList}">
+								<a href="#" th:text="*{article.title}">HTML5 中 40</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--评论排行榜-->
+				<div class="top">
+					<div class="title">
+						<p>评论排行榜</p>
+					</div>
+					<div class="details">
+						<ul>
+							<li><a href="#">HTML5 中 40 个最重要的技术点nihao哈哈哈范德萨范德萨范德萨范德萨范德萨发生大方</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点vdsfnidsfids虐腹 i hi 附近的死哦放假诶哦风景</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点</a></li>
+						</ul>
+					</div>
+				</div>
+				<!--友情链接-->
+				<div class="friendship_link">
+					<div class="title">
+						<p>友情链接</p>
+					</div>
+					<div class="details">
+						<ul>
+							<li th:each="link:${linkList}">
+								<a href="#" th:text="*{link.name}" th:href="*{link.href}">Oracle</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--右部内容-->
+			<div class="right_content">
+				<div class="article" th:object="${articleDetails}">
+					<div class="title">
+						<p>文章详情</p>
+						<p class="iconfont icon-quanping" onclick="articleDetails_MaxOrMin(this)"></p>
+					</div>
+					<!--关于文章-->
+					<div class="about_article">
+						<div class="article_title" th:text="*{title}">服务器配置多个tomcat（解决方案）</div>
+						<div class="article_details">
+							<ul>
+								<li>
+									<span class="iconfont icon-yonghurenxiang"></span>
+									<span th:text="*{author}">Nothing</span>
+								</li>
+								<li>
+									<span class="iconfont icon-yueduliang"></span>
+									<span th:text="*{readSize}">(22)</span>
+								</li>
+								<li>
+									<span class="iconfont icon-pinglun"></span>
+									<span>(1)</span>
+								</li>
+								<li>
+									<span class="iconfont icon-xihuan"></span>
+									<span th:text="*{likeSize}">(10)</span>
+								</li>
+								<li>
+									<span class="iconfont icon-shijian"></span>
+									<span th:text="*{timeAxis}">一周前</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!--文章内容-->
+					<div class="article_content" th:utext="*{content}"></div>
+					<div class="reprinted_note">
+						转载时请注明：<span th:text="*{title}"></span> - BJAVA
+					</div>
+					<!--喜欢/分享-->
+					<div class="like_share">
+						<div class="box">
+							<div class="left">
+								<span class="iconfont icon-xihuan"></span>
+								<span th:text="*{'('+likeSize+')'}">喜欢(10)</span>
+							</div>
+							<div class="right">
+								<span class="iconfont icon-fenxiang"></span>
+								<span>分享(10)</span>
+							</div>
+							<div class="or">
+								or
+							</div>
+						</div>
+					</div>
+					<!--上一篇/下一篇-->
+					<div class="previous_next">
+						<div class="left">
+							<span class="iconfont icon-shangyiye"></span>
+							<a href="#">Spring 相关jar包详细介绍</a>
+						</div>
+						<div class="right">
+							<a href="#">Spring 相关jar包详细介绍</a>
+							<span class="iconfont icon-first"></span>
+						</div>
+					</div>
+					<!--###提交一级评论隐藏表单###-->
+					<input type="hidden" th:value="*{id}" id="articleId"/>
+				</div>
+				<!--评论-->
+				<div class="remark_area">
+					<div class="title">
+						<p>文章评论</p>
+					</div>
+					<!-- 评论列表 start -->
+					<div class="really_remark">
+						<ul class="remark_ul">
+							<li class="remark_ul_li" th:each="remark:${remarkList}">
+								<img src="/imgs/avatar.png" width="40" height="40" title="游客"/>
+								<span class="left_arrow"></span>
+								<div class="box">
+									<span class="remark_content" th:utext="*{remark.parentId==null?remark.content:'@'+remark.replyTo+'<br/>'+remark.content}"></span>
+									<span class="about_remark">
+										<ul>
+											<li>
+												<span class="iconfont icon-yonghurenxiang"></span>
+												<span th:text="*{remark.author}" class="author">Nothing</span>
+												<input type="hidden" th:value="*{remark.id}" class="remarkId"/>
+											</li>
+											<li>
+												<span class="iconfont icon-shijian"></span>
+												<span th:text="*{remark.timeAxis}">2015/7/28 13:22:22</span>
+											</li>
+											<li>
+												<span class="iconfont icon-comment-pen"></span>
+												<span><a href="javascript:void(0);" class="replyBtn" onclick="addSubRemarkTip(this)">回复</a></span>
+											</li>
+										</ul>
+									</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="say_sth">
+						<p style="display:none;">
+							@<span class="author">xxx</span>&nbsp;<span id="cancelRemarkBtn" style="cursor: pointer;" onclick="cancelSubRemarkTip()">取消</span>
+						</p>
+						<div contentEditable="true" id="remarkContent"></div>
+					</div>
+					<!--发表评论区域-->
+					<div class="comment_area">
+						<div class="_left">
+							<div>
+								<span class="iconfont icon-biaoqing"></span>
+							</div>
+							<span class="left_arrow"></span>
+							<span class="face">
+								<ul>
+									<li><img src="/imgs/face/1.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/2.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/3.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/4.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/5.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/6.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/7.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/8.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/9.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/10.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/11.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/12.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/13.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/14.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/15.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/16.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/17.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/18.gif" width="18" height="18"/></li>
+									<li><img src="/imgs/face/19.gif" width="18" height="18"/></li>
+								</ul>
+							</span>
+						</div>
+						<div class="_right">
+							<div class="remarkBtn" onclick="addRemark()">
+								<span class="iconfont icon-comment-pen"></span>
+								<span>发表评论</span>
+							</div>
+						</div>
+						<!--###提交二级评论隐藏表单###-->
+						<input type="hidden" id="parentId" value=""/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<a href="#">Nothing</a>&nbsp;<span class="sx"></span>
+			<a href="#">联系作者</a>&nbsp;<span class="sx"></span>
+			<a href="#">反馈意见</a>&nbsp;<span class="sx"></span>
+			<a href="#">欢迎纠错</a><br>
+			<span>&copy; 2017 BJAVA</span>
+		</div>
+		<!--jqDock菜单-->
+		<div id="dockContainer">
+			<ul id="jqDock" style="display: none;">
+				<li><a class="dockItem" href="/"><img src="/imgs/dock/home-sm.png" alt="主页" title="主页"/></a></li>
+				<li><a class="dockItem" href="/u/me"><img src="/imgs/dock/email-sm.png" alt="个人主页" title="个人主页" /></a></li>
+				<li><a class="dockItem" href="/p/add"><img src="/imgs/dock/portfolio-sm.png" alt="发布文章" title="发布文章" /></a></li>
+				<li><a class="dockItem" href="all-examples.html"><img src="/imgs/dock/music-sm.png" alt="music" title="All&nbsp;Examples" /></a></li>
+				<li><a class="dockItem" href="#"><img src="/imgs/dock/video-sm.png" alt="video" title="Video" /></a></li>
+				<li><a class="dockItem" href="#"><img src="/imgs/dock/history-sm.png" alt="history" title="History" /></a></li>
+				<li><a class="dockItem" href="#"><img src="/imgs/dock/calendar-sm.png" alt="calendar" title="Calendar" /></a></li>
+				<li><a class="dockItem" href="#"><img src="/imgs/dock/link-sm.png" alt="links" title="Links" /></a></li>
+				<li><a class="dockItem" href="#"><img src="/imgs/dock/rss-sm.png" alt="rss" title="RSS" /></a></li>
+				<li><a class="dockItem" href="#"><img src="/imgs/dock/rss2-sm.png" alt="rss" title="RSS" /></a></li>
+			</ul>
+		</div>
+	</div>
+	<!--引入js-->
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+	<script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+	<script src="/js/jquery.jqDock.min.js"></script>
+	<script type="text/javascript">
+        // 高亮代码
+        hljs.initHighlightingOnLoad();
+
+		// JS生成随机颜色的十六进制代码
+        function random_color() {
+            var colorElements = "0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f";
+            var colorArray = colorElements.split(",");
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += colorArray[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // 最大化/最小化文章详情页
+        var flag = true;
+        function articleDetails_MaxOrMin(obj) {
+            if (flag) {
+                $(".left_content").hide();	//隐藏左边栏
+                $(".right_content").animate({"width": "97%"}); //将有边栏宽度变为97%
+                $(".remark_ul_li .box").css("width", "92%"); //改变评论内容盒子宽度(默认90%,变大后为92%)
+                $(obj).removeClass("icon-quanping").addClass("icon-pingmusuoxiao0"); // 最大化/最小化按钮变化
+                flag = false;
+            } else {
+                $(".right_content").animate({"width": "710"}, function () {
+                    $(".left_content").fadeIn();
+                });
+                $(".remark_ul_li .box").css("width", "90%");
+                $(obj).removeClass("icon-pingmusuoxiao0").addClass("icon-quanping");
+                flag = true;
+            }
+        }
+
+        // 提交评论
+        function addRemark() {
+			// 非空校验
+            var remarkContent = $("#remarkContent");
+            if (remarkContent.text().trim()==""){
+                layer.msg("写几个字吧，基佬！", {icon: 5, time: 1000}, function () {
+                    remarkContent.focus().css("border", "1px solid #b29b76");
+                });
+                return;
+            }
+            // 异步提交 todo 提交之前等待+防止二次提交
+            $.ajax({
+                type: 'post',
+                url: '/remark/add',
+                dataType: 'json',
+                data: {
+                    articleId: $("#articleId").val(),
+                    content: remarkContent.html(),
+                    parentId:$("#parentId").val()
+                },
+                success: function (data) {
+                    if (data.status == 0) {
+                        layer.msg(data.msg, {icon: 1, time: 1000});
+                    } else if (data.status == 2) {
+                        layer.msg(data.msg, {icon: 5, time: 1000}, function () {
+                            window.location = "/login";
+                        });
+                    }
+                },
+                error: function () {
+                    layer.msg('服务器错误，请联系管理员!', {icon: 5, time: 1000});
+                }
+            });
+        }
+
+        // 提交二级评论
+        function addSubRemarkTip(obj) {
+            $(".say_sth p").fadeIn();
+            // @xxx
+            $(".say_sth .author").text($(obj).parent().parent().parent().find(".author").text());
+            // parentId
+            $("#parentId").val($(obj).parent().parent().parent().find(".remarkId").val());
+        }
+
+        // 取消二级评论
+        function cancelSubRemarkTip() {
+            $(".say_sth p").fadeOut();
+            $("#parentId").val("");
+        }
+
+		// 页面加载完执行
+        $(function () {
+            // 动态改变分类的背景颜色
+            var detailsUl = $(".left_content .more .details ul li");
+            for (var i = 0; i < detailsUl.length; i++) {
+                detailsUl.eq(i).css("background-color", random_color());
+            }
+
+            // 点击表情将表情放到评论回复框中
+            $("._left .face ul > li").click(function () {
+                var _index = $(this).index() + 1;
+                $("#remarkContent").append("<img src='/imgs/face/" + _index + ".gif' width='18' height='18'/>");
+            });
+
+            // 执行jqDock菜单
+			var jqDockOpts = {align: 'left', duration: 200, labels: 'tc', size: 48, distance: 85};
+			$('#jqDock').fadeIn().jqDock(jqDockOpts);
+        });
+	</script>
+</body>
+</html>

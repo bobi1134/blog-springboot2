@@ -1,0 +1,144 @@
+/*初始化样式*/
+*{margin:0px;padding:0px;}
+ul{list-style:none;}
+a{text-decoration:none;color:#917F5F}
+a:hover{color:#5d4b2c}
+body{font-family:"微软雅黑";font-size:12px;background:url(../imgs/bg/body_bg.jpg);min-width:1349px;color:#917F5F}
+
+/*主容器*/
+.container{width:960px;margin:0px auto;border-left: #b29c77 10px solid;border-right: #b29c77 10px solid;box-shadow: 0px -4px 6px 4px #726758;}
+
+/*头部信息*/
+.header{width:960px;height:290px;background:url(../imgs/bg/header_bg.jpg);margin:0px auto;position:relative;}
+
+/*menu菜单*/
+.header .nav{width:686px;height:40px;position: absolute;bottom:5px;right: 0px;}
+.header .nav a{display: inline-block;width:88px;height:40px;float:left;text-align:center;line-height:40px;font-size:16px;color:#fff}
+.header .nav a:first-child{background:#9ACC99;border-radius:0px 40px;}
+.header .nav a:hover:not(:first-child):not(:last-child){background:#E5B91C;border-radius:40px 0px;
+    -webkit-transition: all 0.5s;-moz-transition:all 0.5s;-o-transition:all 0.5s;-ms-transition:all 0.5s;
+}
+.header .nav a:last-child{width:144px;position: relative;cursor:default;}
+.header .nav a:last-child input{border:0;outline:0;width:110px;height:25px;font-family:"微软雅黑";font-size:14px;float:left;margin-top:8px;margin-left:31px;padding:0px 2px 0px 2px;color:#E3D6C3;border-radius:5px;}
+.header .nav a:last-child span{position: absolute;right: 0;color:#afa699;}
+
+/*正文内容*/
+.content{width:960px;background-color:#E3D6C3;overflow:auto}
+
+/*左部内容 ###############################################################*/
+.content .left_content{width:210px;margin-left:13px;float:left;}
+
+/*博主资料*/
+.content .left_content .introduction{width:210px;border:1px solid red;border: #B19C76 1px solid;background: #F7F3EE;}
+.content .left_content .introduction img{border-radius: 3px;}
+.content .left_content .introduction .title{width:210px;height:30px;background:url(../imgs/bg/content_bg.jpg) repeat-x;}
+.content .left_content .introduction .title p{color:#8B745C;font-weight:bold;margin-left:5px;}
+.content .left_content .introduction .photo{margin:0px 0px 10px 10px}
+.content .left_content .introduction .details{margin-bottom:10px;}
+.content .left_content .introduction .details .row{width: 90%;margin: 5px auto;}
+.content .left_content .introduction .details .row .label{float: left;}
+.content .left_content .introduction .details .row .val{
+    display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;overflow:hidden;
+}
+
+/*more样式[更多分类/标签]*/
+.content .left_content .more{width:210px;border:1px solid red;border: #B19C76 1px solid;background: #F7F3EE;margin-top:10px;overflow:auto}
+.content .left_content .more .title{width:210px;height:30px;background:url(../imgs/bg/content_bg.jpg) repeat-x;}
+.content .left_content .more .title p{color:#8B745C;font-weight:bold;margin-left:5px;}
+.content .left_content .more .details{margin-left:10px;}
+.content .left_content .more .details ul li{width:80%;float:left;margin:0px 0px 5px 10px;text-align:center;font-weight:bold;border-radius:2px;
+    display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;overflow:hidden;
+}
+.content .left_content .more .details ul a{color:#fff}
+.content .left_content .more .details ul a:hover{color:#5d4b2c}
+
+/*top样式[近期文章/阅读排行榜/评论排行榜]*/
+.content .left_content .top{width:210px;border:1px solid red;border: #B19C76 1px solid;background: #F7F3EE;margin-top:10px;}
+.content .left_content .top .title{width:210px;height:30px;background:url(../imgs/bg/content_bg.jpg) repeat-x;}
+.content .left_content .top .title p{color:#8B745C;font-weight:bold;margin-left:5px;}
+.content .left_content .top .details{margin-left:10px}
+.content .left_content .top .details ul li{margin-bottom:5px;border-bottom: solid 1px #eee;
+    display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;overflow:hidden;
+}
+
+/*友情链接*/
+.content .left_content .friendship_link{width:210px;border:1px solid red;border: #B19C76 1px solid;background: #F7F3EE;margin-top:10px;overflow:auto;margin-bottom:100px}
+.content .left_content .friendship_link .title{width:210px;height:30px;background:url(../imgs/bg/content_bg.jpg) repeat-x;}
+.content .left_content .friendship_link .title p{color:#8B745C;font-weight:bold;margin-left:5px;}
+.content .left_content .friendship_link .details{}
+.content .left_content .friendship_link .details ul{width:90%;overflow: auto;margin: 0 auto;}
+.content .left_content .friendship_link .details ul li{width:100%;margin:0 0 5px 0;float:left;text-align:left;font-weight:bold;border-radius:2px;
+    display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;overflow:hidden;
+}
+
+/*右部内容 ###############################################################*/
+.content .right_content{width:710px;float:left;margin:0px 0px 0px 10px;}
+.content .right_content .article{width:100%;border: #B19C76 1px solid;background: #F7F3EE;overflow:auto;}
+.content .right_content .article .title{width:100%;height:30px;background:url(../imgs/bg/content_bg.jpg) repeat-x;}
+.content .right_content .article .title p{color:#8B745C;font-weight:bold;margin-left:5px;float: left}
+.content .right_content .article .title p:last-child{float: right;cursor: pointer;margin: 5px 5px 0 0;font-size: 12px;}
+
+/*关于文章*/
+.content .right_content .article .about_article .article_title{height:35px;margin:0px auto;line-height:35px;font-size:20px;font-weight:bold;padding: 0 10px 0 10px;}
+.content .right_content .article .about_article .article_details{height:20px;border-bottom:1px solid #B19C76;margin:1px auto;width: 97%;}
+.content .right_content .article .about_article .article_details ul li{float:left;margin-right:15px;line-height:20px;}
+.content .right_content .article .about_article .article_details ul li .iconfont{font-size:14px;}
+/*文章内容*/
+.content .right_content .article .article_content{margin:10px auto;font-size:16px;line-height:200%;padding: 0 10px 0 10px;}
+/*转载注明*/
+.content .right_content .article .reprinted_note{margin:0px auto;font-size:16px;padding: 0 10px 0 10px;}
+/*喜欢/分享*/
+.content .right_content .article .like_share{border-bottom:1px solid #B19C76;margin:0px auto;overflow:auto}
+.content .right_content .article .like_share .box{width:340px;height:44px;margin:20px auto;}
+.content .right_content .article .like_share .box .left{width:165px;height:44px;background:#f78585;float:left;font-size:16px;text-align:center;line-height:44px;color:#fff}
+.content .right_content .article .like_share .box .left:hover{cursor:pointer;background-color:#f77575}
+.content .right_content .article .like_share .box .right{width:165px;height:44px;background:#5fcec0;float:left;font-size:16px;text-align:center;line-height:44px;color:#fff;margin-left:10px;}
+.content .right_content .article .like_share .box .right:hover{cursor:pointer;background-color:#60c3b7}
+.content .right_content .article .like_share .box .or{width:36px;height:36px;text-align:center;background-color:#fff;position: relative;left: 152px;top:-40px;border-radius:18px;overflow:auto;line-height:36px;}
+/*上一篇/下一篇*/
+.content .right_content .article .previous_next{height:50px;margin:0px auto;font-size:14px;line-height:50px;}
+.content .right_content .article .previous_next .iconfont{font-size:14px;color:#bbb}
+.content .right_content .article .previous_next .left{width:340px;float:left;height:50px;}
+.content .right_content .article .previous_next .right{width:340px;float:right;text-align:right;height:50px;}
+
+/*文章评论 ###############################################################*/
+.content .right_content .remark_area{border: #B19C76 1px solid;background: #F7F3EE;overflow:auto;margin-top:10px;}
+.content .right_content .remark_area .title{height:30px;background:url(../imgs/bg/content_bg.jpg) repeat-x;}
+.content .right_content .remark_area .title p{color:#8B745C;font-weight:bold;margin-left:5px;}
+.content .right_content .remark_area .really_remark{margin:0px auto}
+/*评论列表*/
+.content .right_content .remark_area .really_remark .remark_ul .remark_ul_li{font-size:14px;overflow:auto;margin-bottom:20px;}
+.content .right_content .remark_area .really_remark .remark_ul .remark_ul_li img:first-child{float:left;border-radius: 50%;margin-left: 10px;}
+/*左箭头*/
+.content .right_content .remark_area .really_remark .remark_ul .remark_ul_li .left_arrow{width:0;height:0;border-width:4px 8px 4px 0px;border-style:solid;border-color:transparent #e4d7c3 transparent transparent;/*透明 灰 透明 透明 */position:relative;display:inline-block;margin:14px 0px 0px 3px;float:left}
+.content .right_content .remark_area .really_remark .remark_ul .remark_ul_li .box{width:90%;background-color:#e4d7c3;border-radius:5px;float:left;}
+/*评论内容*/
+.content .right_content .remark_area .really_remark .remark_ul .remark_ul_li .box .remark_content{min-height:50px;display:block;padding: 5px 0 5px 10px}
+/*关于评论*/
+.content .right_content .remark_area .really_remark .remark_ul .remark_ul_li .box .about_remark{display:block;margin:0px auto;overflow: auto;padding: 0px 0 0px 10px}
+.content .right_content .remark_area .really_remark .remark_ul .remark_ul_li .box .about_remark ul li{float:left;font-size:12px;margin:0px 10px 0px 0px;}
+.content .right_content .remark_area .really_remark .remark_ul .remark_ul_li .box .about_remark ul li .iconfont{font-size:12px;}
+/*说点什么*/
+.content .right_content .remark_area .say_sth{margin:0px auto;width: 98%;}
+.content .right_content .remark_area .say_sth textarea{width:98%;max-width:98%;border:1px solid #eee;margin:0px auto;background-color:#fff;min-height:80px;font-size: 14px;padding: 5px 5px 5px 5px;outline: none;border-radius: 4px;}
+.content .right_content .remark_area .say_sth #remarkContent{width:98%;max-width:98%;min-height:80px;margin:0px auto;background-color:#fff;font-size: 14px;padding: 5px 5px 5px 5px;outline: none;border-radius: 4px;}
+/*发表评论区域*/
+.content .right_content .remark_area .comment_area{height:40px;margin:0px auto;width: 98%;}
+/*左箭头*/
+.content .right_content .remark_area .comment_area .left_arrow{width:0;height:0;border-width:4px 8px 4px 0px;border-style:solid;border-color:transparent #e4d7c3 transparent transparent;position:relative;display:inline-block;float:left;margin:5px 0px 0px 3px;float:left}
+.content .right_content .remark_area .comment_area ._left{font-size:14px;margin-top:5px;float:left}
+.content .right_content .remark_area .comment_area ._left div{float:left;margin-top:3px;}
+.content .right_content .remark_area .comment_area ._left .iconfont{font-size:20px;}
+.content .right_content .remark_area .comment_area ._left div:hover{cursor:pointer;color:#5d4b2c;}
+/*表情*/
+.content .right_content .remark_area .comment_area ._left .face{display:inline-block;float:left;width:487px;}
+.content .right_content .remark_area .comment_area ._left .face ul{height:30px;line-height:30px;background-color:#e4d7c3;border-radius:5px;}
+.content .right_content .remark_area .comment_area ._left .face ul li{float:left;margin:3px 3px 0px 4px;cursor: pointer;}
+/*发表评论*/
+.content .right_content .remark_area .comment_area ._right{height:30px;margin-top:5px;float:right;}
+.content .right_content .remark_area .comment_area ._right .remarkBtn{width:100px;height:30px;background-color:#5fbaac;border-radius:1px;color:#fff;text-align:center;line-height:30px;border-radius:3px;float:right;margin-right:2px;cursor:pointer;}
+.content .right_content .remark_area .comment_area ._right .remarkBtn:hover{background-color:#56c4b3}
+
+/*底部导航*/
+.footer{width:960px;background-color:#E3D6C3;text-align:center;padding:10px 0px 5px 0px;color:#8B745C}
+.footer .sx{border-right:1px solid #8B745C;height:9px;display:inline-block;width:1px;}

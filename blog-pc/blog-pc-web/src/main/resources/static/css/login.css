@@ -1,0 +1,25 @@
+*{margin:0px;margin:0px;}
+body{font-family:"微软雅黑";font-size:12px;background:url(../imgs/bg/body_bg.jpg);color:#917F5F;min-height:500px;}
+.login{width:500px;margin:0px auto;background-color:#E3D6C3;box-shadow: 0px 0px 10px #222;position: relative}
+.login .logo{width:500px;overflow:auto;}
+.login .logo .logo_txt{margin-left: -30px}
+/*登录表单样式*/
+.login_form{width:440px;margin:10px auto;text-align:center;font-size:16px;border-top:1px solid #B19C76;overflow: auto;}
+/*用户名/密码*/
+.login_form .box{width:68%;height: 30px; margin: 10px auto;}
+.login_form .box input{width:246px;height:25px;font-family:"微软雅黑";padding:3px 10px 3px 10px;outline:0;outline: none;border: 0;border-radius:5px;margin-left: 10px;}
+/*验证码*/
+.login_form .box .vcode_box .icon-yanzhengma{float: left;margin-top:6px;margin-left: 1px;}
+.login_form .box .vcode_box img{float: left;margin-left: 15px;border-radius: 3px;}
+.login_form .box .vcode_box input{float: left;margin-left: 15px;border-radius: 3px;width: 132px;}
+/*记住我*/
+.login_form .box .rememberme_box .icon-jizhumima{float: left;margin-top:5px;margin-left: 1px;}
+.login_form .box .rememberme_box input{float: left;}
+/*登录按钮*/
+.login_form .login-btn{width:70%;height: 30px;background-color: #b39974;margin: 10px auto;border-radius:10px;line-height:30px;color: #fff;cursor: pointer;}
+/*三方登录*/
+.tripartite-login{width:207px;height: 60px;margin: 0 auto;}
+.tripartite-login .iconfont{font-size: 50px;float: left;margin-right: 3px;cursor: pointer;}
+.tripartite-login .iconfont:first-child{font-size: 45px;margin-top: 3px}
+/*footer*/
+.footer{width:100%;height:15px;text-align:center;color:#fff;line-height:15px;margin-top:50px}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> 404 - BJAVA </title>
+    <meta charset="UTF-8">
+    <meta name="Keywords" content="KeyWords, KeyWords"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="Nothing"/>
+    <link rel="icon" type="image/x-icon" href="imgs/favicon.ico"/>
+    <style type="text/css">
+        *{margin:0;padding:0}
+        body{font-size:14px;font-family:"微软雅黑";background:url(imgs/bg/body_bg.jpg)}
+        .main{width:700px;height:425px;margin:100px auto;text-align:center;color:#dcd5ce;}
+        a{text-decoration: none;}
+        a:visited{color:#00f}
+    </style>
+    <script type="text/javascript">
+        var miao = 10;
+        var URL;
+        function load(url) {
+            URL = url;
+            for (var i = miao; i >= 0; i--) {
+                window.setTimeout('doUpdate(' + i + ')', (miao - i) * 1000);
+            }
+        }
+        // 更新秒
+        function doUpdate(num) {
+            document.getElementById("time").innerHTML = num;
+            if (num == 0) {
+                window.location = URL;
+            }
+        }
+        load("/");
+
+    </script>
+</head>
+<body>
+    <div class="main">
+        <img src="imgs/404.png" width="700" height="400"/>
+        <p>将在<span id="time">10</span>秒后自动转入<a href="/">首页</a>，请稍后...</p>
+    </div>
+</body>
+</html>

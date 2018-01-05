@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title> Spring - BJAVA </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="Keywords" content="KeyWords, KeyWords"/>
+	<meta name="description" content=""/>
+	<meta name="author" content="Nothing"/>
+	<link rel="icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="/css/category.css"/>
+	<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+	<link href="http://at.alicdn.com/t/font_508049_szakaagmwxumzpvi.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<embed src="/imgs/swf/header.swf" width="960" wmode="transparent"/>
+			<div class="nav">
+				<a href="/">首页</a>
+				<a th:href="${'/cat/'+category.id}" th:each="category:${categoryList}" th:if="*{category.isTop==0}" th:text="*{category.name}">JavaSE</a>
+				<a href="javascript:;">
+					<input type="text" value="search..." onblur="if(this.value==''){this.value='search...';$('.icon-soushuo').fadeIn();}" onfocus="if(this.value=='search...'){this.value='';$('.icon-soushuo').fadeOut();}"/>
+					<span class="iconfont icon-soushuo"></span>
+				</a>
+			</div>
+		</div>
+		<div class="content">
+			<!--左部内容-->
+			<div class="left_content">
+				<!--网站简介-->
+				<div class="introduction">
+					<div class="title">
+						<p>网站简介</p>
+					</div>
+					<img src="/imgs/bjava.jpg" width="180" height="180" class="photo"/>
+					<div class="details">
+						<div class="row">
+							<div class="label">英文名：</div>
+							<div class="val">BJAVA</div>
+						</div>
+						<div class="row">
+							<div class="label">中文名：</div>
+							<div class="val">博客爪哇</div>
+						</div>
+						<div class="row">
+							<div class="label">创始人：</div>
+							<div class="val">Mr.X</div>
+						</div>
+						<div class="row">
+							<div class="label">主页：</div>
+							<div class="val">
+								<a href="http://www.bjava.xyz/u/1">http://www.bjava.xyz/u/1</a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="label">邮箱：</div>
+							<div class="val">
+								<a href="mailto:bjava123@qq.com">bjava123@qq.com</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--更多分类-->
+				<div class="more">
+					<div class="title">
+						<p>更多分类</p>
+					</div>
+					<div class="details">
+						<ul>
+							<a href="#" th:each="category:${categoryList}" th:if="*{category.isTop!=0}">
+								<li th:text="*{category.name}">WEB前端</li>
+							</a>
+						</ul>
+					</div>
+				</div>
+				<!--博客专家-->
+				<div class="user">
+					<div class="title">
+						<p>博客专家</p>
+					</div>
+					<div class="details">
+						<ul>
+							<a href=""><li><img src="/imgs/avatar.png" alt="" width="35" height="35"></li></a>
+							<a href=""><li><img src="/imgs/avatar.png" alt="" width="35" height="35"></li></a>
+							<a href=""><li><img src="/imgs/avatar.png" alt="" width="35" height="35"></li></a>
+							<a href=""><li><img src="/imgs/avatar.png" alt="" width="35" height="35"></li></a>
+							<a href=""><li><img src="/imgs/avatar.png" alt="" width="35" height="35"></li></a>
+							<a href=""><li><img src="/imgs/avatar.png" alt="" width="35" height="35"></li></a>
+							<a href=""><li><img src="/imgs/avatar.png" alt="" width="35" height="35"></li></a>
+							<a href=""><li><img src="/imgs/avatar.png" alt="" width="35" height="35"></li></a>
+							<a href=""><li><img src="/imgs/avatar.png" alt="" width="35" height="35"></li></a>
+							<a href=""><li><img src="/imgs/avatar.png" alt="" width="35" height="35"></li></a>
+							<a href=""><li><img src="/imgs/avatar.png" alt="" width="35" height="35"></li></a>
+							<a href=""><li><img src="/imgs/avatar.png" alt="" width="35" height="35"></li></a>
+							<a href=""><li><img src="/imgs/avatar.png" alt="" width="35" height="35"></li></a>
+						</ul>
+					</div>
+				</div>
+				<!--最新文章-->
+				<div class="top">
+					<div class="title">
+						<p>近期文章</p>
+					</div>
+					<div class="details">
+						<ul>
+							<li th:each="article:${recentArticleList}">
+								<a th:href="${'/p/'+article.id}" th:text="*{article.title}">HTML5</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--阅读排行榜-->
+				<div class="top">
+					<div class="title">
+						<p>阅读排行榜</p>
+					</div>
+					<div class="details">
+						<ul>
+							<li th:each="article:${readRankArticleList}">
+								<a th:href="${'/p/'+article.id}" th:text="*{article.title}">HTML5 中 40</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--评论排行榜-->
+				<div class="top">
+					<div class="title">
+						<p>评论排行榜</p>
+					</div>
+					<div class="details">
+						<ul>
+							<li><a href="#">HTML5 中 40 个最重要的技术点nihao哈哈哈范德萨范德萨范德萨范德萨范德萨发生大方</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点vdsfnidsfids虐腹 i hi 附近的死哦放假诶哦风景</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点</a></li>
+							<li><a href="#">HTML5 中 40 个最重要的技术点</a></li>
+						</ul>
+					</div>
+				</div>
+				<!--友情链接-->
+				<div class="friendship_link">
+					<div class="title">
+						<p>友情链接</p>
+					</div>
+					<div class="details">
+						<ul>
+							<li th:each="link:${linkList}">
+								<a href="#" th:text="*{link.name}" th:href="*{link.href}">Oracle</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--右部内容-->
+			<div class="right_content">
+				<!--分类-->
+				<div class="category_article">
+					<div class="title">
+						<div>
+							<div class="category_name">分类: Spring</div>
+							<div class="filter">
+								<a href="">最新发布</a>
+								<a href="">阅读量</a>
+								<a href="">评论量</a>
+							</div>
+						</div>
+					</div>
+					<div class="details">
+						<ul>
+							<li class="article">
+								<!--分类名,文章标题-->
+								<div class="category_title">
+									<a href="">
+										<span class="article_category">WEB前端</span>
+									</a>
+									<span class="arrow"></span>
+									<span class="article_title">
+										<a href="#">Spring 相关jar包详细介绍</a>
+									</span>
+								</div>
+								<!--文章内容(主图/摘要/评论数量/喜欢数量等)-->
+								<div class="article_content">
+									<!--主图-->
+									<div class="article_mainimg">
+										<img src="/imgs/main_img.jpg" width="200" height="124" />
+									</div>
+									<div class="article_content">
+										<!--摘要-->
+										<div class="summary">
+											aspectj目录下是在Spring框架下使用aspectj的源代码和测试程序文件。Aspectj是java最早的提供AOP的应用框架。 dist 目录下是Spring 的发布包，关于发布包下面会详细进行说明。 docs 目录下是相关的文档，包括有Spring api 的javaaspectj目录下是在Spring框架下使用aspectj的源代码和测试程序文件。Aspectj是java最早的提供AOP的应用框架。 dist 目录下是Spring 的发布包，关于发布包下面会详细进行说明。 docs 目录下是相关的文档，包括有Spring api 的javaspectj目录下是在Spring框架下使用aspectj的源代码和测试程序文件。Aspectj是java最早的提供AOP的应用框架。 dist 目录下是Spring 的发布包，关于发布包下面会详细进行说明。 docs 目录下是相关的文档，包括有Spring api 的jav
+											aspectj目录下是在Spring框架下使用aspectj的源代码和测试程序文件。Aspectj是java最早的提供AOP的应用框架。 dist 目录下是Spring 的发布包，关于发布包下面会详细进行说明。 docs 目录下是相关的文档，包括有Spring api 的javaaspectj目录下是在Spring框架下使用aspectj的源代码和测试程序文件。Aspectj是java最早的提供AOP的应用框架。 dist 目录下是Spring 的发布包，关于发布包下面会详细进行说明。 docs 目录下是相关的文档，包括有Spring api 的javaspectj目录下是在Spring框架下使用aspectj的源代码和测试程序文件。Aspectj是java最早的提供AOP的应用框架。 dist 目录下是Spring 的发布包，关于发布包下面会详细进行说明。 docs 目录下是相关的文档，包括有Spring api 的jav
+										</div>
+										<!--作者,发表时间,评论数量,喜欢数量-->
+										<div class="cbout_article">
+											<ul>
+												<li>
+													<span class="iconfont icon-yonghurenxiang"></span>
+													<span>Nothing</span>
+												</li>
+												<li>
+													<span class="iconfont icon-yueduliang"></span>
+													<span>(22)</span>
+												</li>
+												<li>
+													<span class="iconfont icon-pinglun"></span>
+													<span>(1)</span>
+												</li>
+												<li>
+													<span class="iconfont icon-xihuan"></span>
+													<span>(10)</span>
+												</li>
+												<li>
+													<span class="iconfont icon-shijian"></span>
+													<span>一周前</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<li class="article">
+								<!--分类名,文章标题-->
+								<div class="category_title">
+									<a href="">
+										<span class="article_category">WEB前端</span>
+									</a>
+									<span class="arrow"></span>
+									<span class="article_title">
+										<a href="#">Spring 相关jar包详细介绍</a>
+									</span>
+								</div>
+								<!--文章内容(主图/摘要/评论数量/喜欢数量等)-->
+								<div class="article_content">
+									<!--主图-->
+									<div class="article_mainimg">
+										<img src="/imgs/main_img.jpg" width="200" height="124" />
+									</div>
+									<div class="article_content">
+										<!--摘要-->
+										<div class="summary">
+											aspectj目录下是在Spring框架下使用aspectj的源代码和测试程序文件。Aspectj是java最早的提供AOP的应用框架。 dist 目录下是Spring 的发布包，关于发布包下面会详细进行说明。 docs 目录下是相关的文档，包括有Spring api 的javaaspectj目录下是在Spring框架下使用aspectj的源代码和测试程序文件。Aspectj是java最早的提供AOP的应用框架。 dist 目录下是Spring 的发布包，关于发布包下面会详细进行说明。 docs 目录下是相关的文档，包括有Spring api 的javaspectj目录下是在Spring框架下使用aspectj的源代码和测试程序文件。Aspectj是java最早的提供AOP的应用框架。 dist 目录下是Spring 的发布包，关于发布包下面会详细进行说明。 docs 目录下是相关的文档，包括有Spring api 的jav
+											aspectj目录下是在Spring框架下使用aspectj的源代码和测试程序文件。Aspectj是java最早的提供AOP的应用框架。 dist 目录下是Spring 的发布包，关于发布包下面会详细进行说明。 docs 目录下是相关的文档，包括有Spring api 的javaaspectj目录下是在Spring框架下使用aspectj的源代码和测试程序文件。Aspectj是java最早的提供AOP的应用框架。 dist 目录下是Spring 的发布包，关于发布包下面会详细进行说明。 docs 目录下是相关的文档，包括有Spring api 的javaspectj目录下是在Spring框架下使用aspectj的源代码和测试程序文件。Aspectj是java最早的提供AOP的应用框架。 dist 目录下是Spring 的发布包，关于发布包下面会详细进行说明。 docs 目录下是相关的文档，包括有Spring api 的jav
+										</div>
+										<!--作者,发表时间,评论数量,喜欢数量-->
+										<div class="cbout_article">
+											<ul>
+												<li>
+													<span class="iconfont icon-yonghurenxiang"></span>
+													<span>Nothing</span>
+												</li>
+												<li>
+													<span class="iconfont icon-yueduliang"></span>
+													<span>(22)</span>
+												</li>
+												<li>
+													<span class="iconfont icon-pinglun"></span>
+													<span>(1)</span>
+												</li>
+												<li>
+													<span class="iconfont icon-xihuan"></span>
+													<span>(10)</span>
+												</li>
+												<li>
+													<span class="iconfont icon-shijian"></span>
+													<span>一周前</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<a href="#">Nothing</a>&nbsp;<span class="sx"></span>
+			<a href="#">联系作者</a>&nbsp;<span class="sx"></span>
+			<a href="#">反馈意见</a>&nbsp;<span class="sx"></span>
+			<a href="#">欢迎纠错</a><br>
+			<span>&copy; 2017 BJAVA</span>
+		</div>
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+        // JS生成随机颜色的十六进制代码
+        function random_color() {
+            var colorElements = "0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f";
+            var colorArray = colorElements.split(",");
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += colorArray[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // 页面加载完执行
+        $(function () {
+            var detailsUl = $(".content .left_content .more .details ul li");
+            for (var i = 0; i < detailsUl.length; i++) {
+                detailsUl.eq(i).css("background-color", random_color());
+            }
+        });
+	</script>
+</body>
+</html>

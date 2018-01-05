@@ -1,0 +1,4 @@
+#dockContainer { position: fixed; top: 60px; left: 0px; }
+#jqDock { position: relative; bottom: 48px; }
+#jqDock li { list-style: none; }
+.jqDockLabel { background: #333; color: #fff; padding: 3px 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px; }

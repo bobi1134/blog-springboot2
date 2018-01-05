@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <description>电脑端前台</description>
+    <!--父模块-->
+    <parent>
+        <artifactId>blog</artifactId>
+        <groupId>cn.mrx</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>blog-pc</artifactId>
+    <packaging>pom</packaging>
+    <name>blog-pc</name>
+    <url>http://maven.apache.org</url>
+    <!--子模块-->
+    <modules>
+        <module>blog-pc-service</module>
+        <module>blog-pc-repository</module>
+        <module>blog-pc-web</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.mrx</groupId>
+            <artifactId>blog-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.mrx</groupId>
+            <artifactId>blog-entity</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>

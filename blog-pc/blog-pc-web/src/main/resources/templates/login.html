@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title> 博客管理登陆 - BJAVA </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="Keywords" content="KeyWords, KeyWords"/>
+	<meta name="description" content=""/>
+	<meta name="author" content="Nothing" />
+	<link rel="icon" type="image/x-icon" href="imgs/favicon.ico"/>
+	<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+	<link href="//at.alicdn.com/t/font_508049_ztda77hiaqxb6gvi.css" rel="stylesheet">
+	<link href="/css/login.css" rel="stylesheet">
+</head>
+<body>
+	<div class="login animated bounceInDown">
+		<div class="logo">
+			<img src="/imgs/logo.png" width="180" height="128" class="logo_img"/>
+			<img src="/imgs/logo_txt.png" width="310" height="100" class="logo_txt"/>
+		</div>
+		<div class="login_form">
+			<!--登录表单-->
+			<form id="loginForm">
+				<div class="box">
+					<span class="iconfont icon-yonghurenxiang"></span>
+					<input type="text" placeholder="请输入账号" name="username"/>
+				</div>
+				<div class="box">
+					<span class="iconfont icon-mima"></span>
+					<input type="text" class="input_box" placeholder="请输入密码" name="password"/>
+				</div>
+				<div class="box">
+					<div class="vcode_box">
+						<span class="iconfont icon-yanzhengma"></span>
+						<img src="imgs/vcode.png" alt="" width="100" height="30">
+						<input type="text" placeholder="请输入验证码" name="vcode"/>
+					</div>
+				</div>
+				<div class="box">
+					<div class="rememberme_box">
+						<span class="iconfont icon-jizhumima"></span>
+						<input type="checkbox">
+					</div>
+				</div>
+				<div class="login-btn" onclick="user_login();">
+					登&nbsp;&nbsp;录
+				</div>
+			</form>
+			<div class="tripartite-login">
+				<span class="iconfont icon-qq" onclick="alert('qq登录待开发...');"></span>
+				<span class="iconfont icon-weixin" onclick="alert('微信登录待开发...');"></span>
+				<span class="iconfont icon-zhifubao" onclick="alert('支付宝登录待开发...');"></span>
+				<span class="iconfont icon-weibo" onclick="alert('微博登录待开发...');"></span>
+			</div>
+			<!--pc端用户登录成功后跳转路径-->
+			<input type="hidden" th:value="${session.redirect_url}" id="redirectUrl"/>
+		</div>
+	</div>
+	<div class="footer animated bounceInUp">
+			登陆界面 v1.0 By Mr.X<br/>
+			&copy; 2017
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+	<script type="text/javascript">
+		// 让登录表单始终处于居中状态
+        function login_form_location() {
+            // 浏览器高度
+            var browser_height = $(window).height();
+            // 登录框高度
+            var loginBoxHeight = $(".login").height();
+            $(".login").css("margin-top", (browser_height - loginBoxHeight) / 2);
+            // 坚挺浏览器调整大小函数
+            $(window).resize(function () {
+                var browser_height = $(window).height();
+                if (browser_height > 300) {
+                    $(".login").css("margin-top", (browser_height - 300) / 2);
+                } else {
+                    $(".login").css("margin-top", 0);
+                }
+            });
+        }
+
+        // 用户登录
+        function user_login() {
+            $.ajax({
+                type: 'post',
+                url: '/login',
+                dataType: 'json',
+                data: $("#loginForm").serialize(),
+                success: function (data) {
+                    if (data.status == 0) {
+                        layer.msg(data.msg, {icon: 1, time: 1000}, function () {
+                            var redirectUrl = $("#redirectUrl").val();
+                            window.location = redirectUrl == "" ? "/" : redirectUrl;
+                        });
+                    }
+                    else {
+                        layer.msg(data.msg, {icon: 5, time: 1000});
+                    }
+                },
+                error: function () {
+                    layer.msg('服务器错误，请联系管理员!', {icon: 5, time: 1000});
+                }
+            });
+        }
+
+        // 文档加载完执行
+        $(function () {
+            login_form_location();
+        });
+	</script>
+</body>
+</html>
